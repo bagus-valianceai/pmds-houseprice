@@ -1,0 +1,127 @@
+TARGET_COLUMN: SalePrice
+DATA_PATH: data/train.csv
+TEST_SIZE: 0.2
+scoring: 
+- neg_root_mean_squared_error
+- r2
+n_iter_search: 3
+verbosity: 2
+NUM_COLUMN:
+- MSSubClass
+- LotFrontage
+- LotArea
+- YearBuilt
+- YearRemodAdd
+- MasVnrArea
+- BsmtFinSF2
+- BsmtUnfSF
+- TotalBsmtSF
+- 1stFlrSF
+- 2ndFlrSF
+- GrLivArea
+- FullBath
+- HalfBath
+- BedroomAbvGr
+- KitchenAbvGr
+- TotRmsAbvGrd
+- Fireplaces
+- GarageYrBlt
+- GarageCars
+- GarageArea
+- WoodDeckSF
+- OpenPorchSF
+- EnclosedPorch
+- 3SsnPorch
+- ScreenPorch
+- PoolArea
+- MiscVal
+- MoSold
+- YrSold
+CAT_COLUMN:
+- MSZoning
+- Street
+- Alley
+- LotShape
+- LandContour
+- Utilities
+- LotConfig
+- LandSlope
+- Neighborhood
+- Condition1
+- Condition2
+- BldgType
+- HouseStyle
+- OverallQual
+- OverallCond
+- RoofStyle
+- RoofMatl
+- Exterior1st
+- Exterior2nd
+- MasVnrType
+- ExterQual
+- ExterCond
+- Foundation
+- BsmtQual
+- BsmtCond
+- BsmtExposure
+- BsmtFinType1
+- BsmtFinSF1
+- BsmtFinType2
+- Heating
+- HeatingQC
+- CentralAir
+- Electrical
+- LowQualFinSF
+- BsmtFullBath
+- BsmtHalfBath
+- KitchenQual
+- Functional
+- FireplaceQu
+- GarageType
+- GarageFinish
+- GarageQual
+- GarageCond
+- PavedDrive
+- PoolQC
+- Fence
+- MiscFeature
+- SaleType
+- SaleCondition
+
+TRAIN_COLUMN:
+- OverallQual
+- GrLivArea
+- TotalBsmtSF
+- 1stFlrSF
+- GarageCars
+- GarageArea
+
+PREDICT_COLUMN:
+- OverallQual
+- GrLivArea
+- TotalBsmtSF
+- FirstFlrSF
+- GarageCars
+- GarageArea
+
+PREDICT_COLUMN_TYPE:
+    OverallQual: int
+    GrLivArea: int
+    TotalBsmtSF: int
+    FirstFlrSF: int
+    GarageCars: int
+    GarageArea: int
+    
+X_PATH_TRAIN: output/read_data/x_train.pkl
+Y_PATH_TRAIN: output/read_data/y_train.pkl
+X_PATH_VALID: output/read_data/x_valid.pkl
+Y_PATH_VALID: output/read_data/y_valid.pkl
+X_PATH_TEST: output/read_data/x_test.pkl
+Y_PATH_TEST: output/read_data/y_test.pkl
+DUMP_TRAIN: output/preprocess_data/data/preprocessed_x_train.pkl
+DUMP_VALID: output/preprocess_data/data/preprocessed_x_valid.pkl
+DUMP_TEST: output/preprocess_data/data/preprocessed_x_test.pkl
+DUMP_PREDICT: output/predict/data/preprocessed_x_predict.pkl
+MODEL_NAME: output/model/train/model_name.pkl
+BEST_MODEL: output/model/train/best_estimator.pkl
+TRAIN_LOG: output/model/train/train_log.pkl
