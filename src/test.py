@@ -10,11 +10,14 @@ f = open("src/params/params_2.yaml", "r")
 params = yaml.load(f, Loader=yaml.SafeLoader)
 f.close()
 
-def lalala(params):
+def lalala(x):
     model_name = joblib.load(params['MODEL_NAME'])
     main_model = joblib.load(params['BEST_MODEL'])
-    x = 5
-    assert(x ==5)
+    x += 5
+    assert(x == 10)
+
+def lolo():
+    lalala(5)
 
 # def set_dtypes(data_input, params):
 #     '''
