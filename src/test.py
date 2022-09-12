@@ -91,5 +91,3 @@ def test_predict():
     print(f"Model: {predict_dict['model_name']},\n Predicted: {predict_dict['predicted']}\n")
 
     assert(205000 < y_predicted < 206000)
-
-test_predict()
