@@ -5,5 +5,5 @@ def some_funcuntion(x):
     return x
 
 def test_function():
-    assert some_funcuntion(5) == 15
+    assert some_funcuntion(5) == 10
     
