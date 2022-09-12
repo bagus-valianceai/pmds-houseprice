@@ -2,8 +2,8 @@ FROM python:3.6-slim-buster as base
 
 FROM base as builder 
 
-COPY ./requirements.txt ./scripts/install.sh ./
-RUN ./install.sh && python -m venv /opt/venv
+COPY ./requirements.txt ./
+RUN python -m venv /opt/venv
 
 # setup venv as path
 ENV PATH="/opt/venv/bin:$PATH"
