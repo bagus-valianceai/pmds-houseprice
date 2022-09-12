@@ -7,4 +7,5 @@ output/read_data/
 output/preprocess_data/data/
 output/preprocess_data/estimator/
 output/model/test/
+output/model/train/
 output/predict/
