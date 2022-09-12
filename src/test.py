@@ -11,13 +11,14 @@ params = yaml.load(f, Loader=yaml.SafeLoader)
 f.close()
 
 def lalala(x):
-    model_name = joblib.load(params['MODEL_NAME'])
-    main_model = joblib.load(params['BEST_MODEL'])
+    # model_name = joblib.load(params['MODEL_NAME'])
+    # main_model = joblib.load(params['BEST_MODEL'])
     x += 5
-    assert(x == 10)
+    return x
 
 def lolo():
-    lalala(5)
+    x = lalala(5)
+    assert(x == 10)
 
 # def set_dtypes(data_input, params):
 #     '''
