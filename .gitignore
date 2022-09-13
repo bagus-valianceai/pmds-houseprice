@@ -4,6 +4,5 @@ __pycache__
 log
 venv_pmds
 output/read_data/
-output/preprocess_data/data/*.pkl
-output/model/test/*.pkl
-output/predict/data/*.pkl
+output/model/test/
+output/predict/data/
