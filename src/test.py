@@ -59,7 +59,7 @@ def feature_engineering_predict(data_to_predict):
     df_add_feature = add_feature(house_numerical, state="predict")
     df_numerical_imputed = prep.numerical_imputer(df_add_feature, state=state)
     x_predict = prep.normalization(df_add_feature, state=state)
-    joblib.dump(x_predict, dump_path)
+    #joblib.dump(x_predict, dump_path)
     return x_predict
 
 def test_predict():
