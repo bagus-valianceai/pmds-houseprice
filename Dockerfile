@@ -1,25 +1,15 @@
-FROM python:3.6-slim-buster as base
+FROM python:3.9-slim-buster
+ 
+COPY ./requirements.txt ./home
+COPY ./src ./home
+COPY ./output ./home
 
-FROM base as builder 
+RUN apt-get update && apt-get -y install procps
 
-COPY ./requirements.txt ./
-RUN python -m venv /opt/venv
-
-# setup venv as path
-ENV PATH="/opt/venv/bin:$PATH"
 RUN pip install --upgrade pip
-RUN pip install -r ./requirements.txt
+RUN pip install -r ./home/requirements.txt
 
-FROM base
+WORKDIR /home
+EXPOSE 8080
 
-RUN apt-get update \
-    && apt-get -y install procps
-
-COPY --from=builder /opt/venv /opt/venv
-
-ENV PATH="/opt/venv/bin:$PATH"
-
-WORKDIR /opt/apps/project
-
-# Idle
-CMD ["tail", "-f", "/dev/null"]
+CMD ["gunicorn", "-b", "0.0.0.0:8080", "api:app"]
