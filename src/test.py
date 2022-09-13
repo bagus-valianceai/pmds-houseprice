@@ -1,5 +1,6 @@
 import joblib
 import yaml
+import os
 import pandas as pd
 import numpy as np
 import preprocess_data as prep
@@ -9,6 +10,8 @@ from feature_engineering import main as add_feature
 f = open("src/params/params_2.yaml", "r")
 params = yaml.load(f, Loader=yaml.SafeLoader)
 f.close()
+
+os.mkdir("../output/predict/data/")
 
 # model_name = joblib.load(params['MODEL_NAME'])
 # main_model = joblib.load(params['BEST_MODEL'])
