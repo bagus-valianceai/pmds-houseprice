@@ -39,7 +39,6 @@ jobs:
         pytest src/test.py
   
   docker-build:
-    needs: build
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3
