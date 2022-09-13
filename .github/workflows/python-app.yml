@@ -61,6 +61,6 @@ jobs:
       uses: docker/build-push-action@v3.1.1
       with:
         context: .
-        file: ../Dockerfile
+        file: ./Dockerfile
         push: true
         tags: ${{ secrets.DOCKER_HUB_USERNAME }}/pmds:latest
