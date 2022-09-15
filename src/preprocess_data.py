@@ -22,7 +22,7 @@ def numerical_imputer(numerical,
         joblib.dump(imputer,
                     "output/preprocess_data/estimator/numerical_imputer.pkl")
     elif state == 'transform':
-        imputer = joblib.load("output/preprocess_data/estimator/numerical_imputer.pkl")
+        imputer = joblib.load("../output/preprocess_data/estimator/numerical_imputer.pkl")
         
     imputed = imputer.transform(numerical)
     imputed = pd.DataFrame(imputed)
@@ -73,7 +73,7 @@ def normalization(x_all,
                     "output/preprocess_data/estimator/normalizer.pkl")
 
     elif state == 'transform':
-        normalizer = joblib.load("output/preprocess_data/estimator/normalizer.pkl")
+        normalizer = joblib.load("../output/preprocess_data/estimator/normalizer.pkl")
         
     normalized = normalizer.transform(x_all)
     normalized = pd.DataFrame(normalized)
