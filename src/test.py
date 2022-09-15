@@ -7,7 +7,7 @@ import preprocess_data as prep
 from feature_engineering import main as add_feature
 
 # Open yaml
-f = open("src/params/params_2.yaml", "r")
+f = open("params/params_2.yaml", "r")
 params = yaml.load(f, Loader=yaml.SafeLoader)
 f.close()
 
@@ -96,3 +96,25 @@ def test_predict():
     print(f"Model: {predict_dict['model_name']},\n Predicted: {predict_dict['predicted']}\n")
 
     assert(205000 < y_predicted < 206000)
+
+def api_prerdict(api_data, main_model, model_name):
+    predict_dict = {
+    'model': [main_model],
+    'model_name': [model_name],
+    'predicted': []
+    }
+
+    print(type(api_data))
+    print(api_data)
+    api_data = [api_data]
+    
+    # Make input data to DataFrame
+    x_input = construct_df(params, api_data)
+
+    # Feature engineering on input DataFrame
+    x_predict = feature_engineering_predict(x_input)
+
+    # Make prediction
+    y_predicted = main_model.predict(x_predict)
+
+    return y_predicted
