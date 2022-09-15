@@ -97,7 +97,7 @@ def test_predict():
 
     assert(205000 < y_predicted < 206000)
 
-def api_prerdict(api_data, main_model, model_name):
+def api_predict(api_data, main_model, model_name):
     predict_dict = {
     'model': [main_model],
     'model_name': [model_name],

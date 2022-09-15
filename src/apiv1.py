@@ -1,6 +1,6 @@
 from fastapi import FastAPI
 from pydantic import BaseModel
-from test import api_prerdict
+from test import api_predict
 import yaml
 import joblib
 
@@ -33,6 +33,6 @@ def root(item: api_data):
     for i, value in enumerate(item):
         data_predict[value[0]] = value[1]
 
-    res = api_prerdict(data_predict, main_model, model_name)
+    res = api_predict(data_predict, main_model, model_name)
     print(res[0])
     return {"res" : res[0]}
