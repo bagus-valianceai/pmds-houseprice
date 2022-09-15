@@ -61,8 +61,8 @@ def feature_engineering_predict(data_to_predict):
 
 def test_predict():
     # load model name and model estimator with best param
-    model_name = joblib.load(params['MODEL_NAME'])
-    main_model = joblib.load(params['BEST_MODEL'])
+    model_name = joblib.load("../" + params['MODEL_NAME'])
+    main_model = joblib.load("../" + params['BEST_MODEL'])
 
     # construct dictionary as log file
     predict_dict = {
