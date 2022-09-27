@@ -32,6 +32,7 @@ def root(item: api_data, auth_token: str = Header()):
     if auth_token != "pacmannpmds" :
         raise HTTPException(status_code = 401, detail = "Invalid token.")
 
+
     data_predict = dict()
 
     for i, value in enumerate(item):
