@@ -1,1 +1,1 @@
-web: cd ./src/ && gunicorn -b 0.0.0.0:process.env.PORT -k uvicorn.workers.UvicornWorker apiv1:app
+web: cd ./src/ && gunicorn -b 0.0.0.0:${PORT} -k uvicorn.workers.UvicornWorker apiv1:app
