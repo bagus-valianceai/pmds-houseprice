@@ -1,4 +1,5 @@
-from fastapi import FastAPI
+from fastapi import FastAPI, Header, HTTPException
+import starlette.responses as response
 from pydantic import BaseModel
 from test import api_predict
 import yaml
@@ -24,10 +25,13 @@ app = FastAPI()
 
 @app.get("/")
 def root():
-    return "Hello PMDS v1!"
+    return response.RedirectResponse("/redoc")
 
 @app.post("/predict_v1/")
-def root(item: api_data):
+def root(item: api_data, auth_token: str = Header()):
+    if auth_token != "pacmannpmds" :
+        raise HTTPException(status_code = 401, detail = "Invalid token.")
+
     data_predict = dict()
 
     for i, value in enumerate(item):
