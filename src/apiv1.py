@@ -28,8 +28,8 @@ def root():
     return response.RedirectResponse("/redoc")
 
 @app.post("/predict_v1/")
-def root(item: api_data, deploy_token: str = Header()):
-    if deploy_token != "pacmannpmds" :
+def root(item: api_data, pass_token: str = Header()):
+    if pass_token != "pacmannpmds" :
         raise HTTPException(
             status_code = 401,
             detail = "Invalid token."
