@@ -1,1 +1,1 @@
-web: gunicorn -b0.0.0.0.0:8080 -k uvicorn.workers.UvicornWorker apiv1:app
+web: gunicorn -b 0.0.0.0:8080 -k uvicorn.workers.UvicornWorker apiv1:app
